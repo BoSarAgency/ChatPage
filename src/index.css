@@ -5,14 +5,60 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* CSS Custom Properties for theming */
+  --primary-bg: #ffffff;
+  --secondary-bg: #f7f7f8;
+  --tertiary-bg: #ffffff;
+  --primary-text: #374151;
+  --secondary-text: #8e8ea0;
+  --user-message-bg: #2f2f2f;
+  --user-message-text: #ffffff;
+  --assistant-message-bg: #f7f7f8;
+  --assistant-message-text: #374151;
+  --border-color: #e5e5e5;
+  --focus-border-color: #10a37f;
+  --input-bg: #f7f7f8;
+  --input-border: #e5e5e5;
+  --placeholder-text: #8e8ea0;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.3);
+  --code-bg: #f6f8fa;
+  --code-text: #24292e;
+  --loading-dots: #999;
+
   color-scheme: light;
-  color: #374151;
-  background-color: #ffffff;
+  color: var(--primary-text);
+  background-color: var(--primary-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme variables */
+:root[data-theme="dark"] {
+  --primary-bg: #212121;
+  --secondary-bg: #2f2f2f;
+  --tertiary-bg: #1a1a1a;
+  --primary-text: #ececec;
+  --secondary-text: #b4b4b4;
+  --user-message-bg: #2f2f2f;
+  --user-message-text: #ececec;
+  --assistant-message-bg: #444654;
+  --assistant-message-text: #ececec;
+  --border-color: #4d4d4f;
+  --focus-border-color: #10a37f;
+  --input-bg: #40414f;
+  --input-border: #4d4d4f;
+  --placeholder-text: #8e8ea0;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+  --code-bg: #2d2d2d;
+  --code-text: #f8f8f2;
+  --loading-dots: #b4b4b4;
+
+  color-scheme: dark;
 }
 
 * {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Send } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { chatConfig } from "./config";
+import { chatConfig, themes, applyTheme } from "./config";
 import "./App.css";
 
 function App() {
@@ -22,6 +22,11 @@ function App() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Apply theme to document root
+  useEffect(() => {
+    applyTheme(chatConfig.theme);
+  }, []);
 
   const sendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
@@ -167,12 +172,12 @@ function App() {
               style={{
                 backgroundColor:
                   message.role === "user"
-                    ? chatConfig.userMessageBgColor
-                    : chatConfig.assistantMessageBgColor,
+                    ? themes[chatConfig.theme].userMessageBg
+                    : themes[chatConfig.theme].assistantMessageBg,
                 color:
                   message.role === "user"
-                    ? chatConfig.userMessageTextColor
-                    : chatConfig.assistantMessageTextColor,
+                    ? themes[chatConfig.theme].userMessageText
+                    : themes[chatConfig.theme].assistantMessageText,
               }}
             >
               <div className="message-content">
