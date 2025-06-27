@@ -18,23 +18,36 @@ This application is designed to be deployed and embedded as an iframe in other a
 Once deployed, you can embed the application using an iframe. See `test.html` for a complete example:
 
 ```html
-<iframe src="YOUR_AMPLIFY_URL_HERE"
-        style="width: 100vw; height: 100vh; border: none;"
-        title="ChatPage App"
-        allowfullscreen>
+<iframe
+  src="YOUR_AMPLIFY_URL_HERE"
+  style="width: 100vw; height: 100vh; border: none;"
+  title="ChatPage App"
+  allowfullscreen
+>
 </iframe>
 ```
 
 The `test.html` file in this repository provides a full-screen iframe implementation that you can use as a reference or for testing your deployment.
 
-## Development
+### Configuration
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Before deploying or running the application, you need to configure the chat settings in `src/config.js`:
 
-Currently, two official plugins are available:
+```javascript
+export const chatConfig = {
+  initialMessage: "Hello! How can I help you today?",
+  color: "#10a37f", // ChatGPT green
+  apiURL: "https://your-api-endpoint.com/messages",
+  theme: "dark", // Choose "light" or "dark"
+};
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Configuration Options:**
+
+- **`initialMessage`**: Customize the greeting message that appears when the chat loads
+- **`apiURL`**: **Required** - Set this to your chat API endpoint URL that handles message processing
+- **`color`**: Customize the accent color for the chat interface (hex color code)
+- **`theme`**: Choose between `"light"` or `"dark"` theme for the chat interface
 
 ### Local Development
 
@@ -48,7 +61,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
