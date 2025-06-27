@@ -6,7 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true, // Allow all hosts
-    allowedHosts: "all", // Allow all hostnames (required for Replit)
+    allowedHosts: [".repl.co", ".replit.dev"], // Allow all hostnames
+    hmr: {
+      clientPort: 443, // Use HTTPS port for Replit
+    },
     headers: {
       "X-Frame-Options": "ALLOWALL",
       "Content-Security-Policy": "frame-ancestors *",
